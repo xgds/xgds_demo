@@ -330,18 +330,6 @@ COMPASS_CORRECTION =  10
 
 # GEOCAM_TRACK_RECENT_TIME_FUNCTION = 'xgds_baseline_app.views.getCurrentTimeWithDelayCorrection'
 
-# Include a dictionary of name to url for imports if you wish to include import functionality
-# XGDS_DATA_IMPORTS = getOrCreateDict('XGDS_DATA_IMPORTS')
-# XGDS_DATA_IMPORTS["Foo"]= '../../xgds_baseline_app/instrumentDataImport/Foo'
-
-# XGDS_DATA_MASKED_FIELDS = getOrCreateDict('XGDS_DATA_MASKED_FIELDS')
-# XGDS_DATA_MASKED_FIELDS['basaltApp'] = {'MyImageSet': ['user_position',
-#                                                           'creation_time',
-#                                                           ],
-#                                        }
-# XGDS_DATA_EXPAND_RELATED = getOrCreateDict('XGDS_DATA_EXPAND_RELATED')
-# XGDS_DATA_EXPAND_RELATED['xgds_baseline_app'] = {'MySample': [('region', 'zone', 'Zone')]}
-
 
 # XGDS_VIDEO_GET_ACTIVE_EPISODE = 'xgds_baseline_app.views.getActiveEpisode'
 # XGDS_VIDEO_GET_EPISODE_FROM_NAME = 'xgds_baseline_app.views.getEpisodeFromName'
