@@ -239,8 +239,6 @@ LOGIN_URL = SCRIPT_NAME + 'accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
 # email settings
-# EMAIL_HOST="email.arc.nasa.gov"
-# EMAIL_PORT=25
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = '/tmp/xgds_messages'
 EMAIL_SUBJECT_PREFIX = '[xGDS] '
@@ -272,14 +270,8 @@ PIPELINE['CSS_COMPRESSOR'] = 'pipeline.compressors.yuglify.YuglifyCompressor'
 PIPELINE['YUGLIFY_JS_ARGUMENTS'] = 'mangle:false --terminal'
 PIPELINE['DISABLE_WRAPPER'] = True
 
-#TODO if you are using planner, include something like this:
-PIPELINE['JAVASCRIPT'] = getOrCreateDict('PIPELINE.JAVASCRIPT')
-# PIPELINE['JAVASCRIPT']['simulator'] = {'source_filenames': ('xgds_yoursitename_app/js/planner/yourvehicleSimulator.js'),
-#                                                             'output_filename': 'js/simulator.js',
-#                                                             }
-
-COMPRESS_ENABLED = True
-COMPRESS_CSSTIDY_BINARY = '/usr/bin/csstidy'
+COMPRESS_ENABLED = False
+#COMPRESS_CSSTIDY_BINARY = '/usr/bin/csstidy'
 
 # PIPELINE_COMPILERS = ()
 
