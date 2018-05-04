@@ -34,9 +34,9 @@ from django.core.urlresolvers import reverse
 from geocamUtil.SettingsUtil import getOrCreateDict, getOrCreateArray, HOSTNAME
 
 
-XGDS_SITE_APP = "xgds_baseline_app" # xgds_yoursitehere_app
+XGDS_SITE_APP = "xgds_demo_app"
 
-SITE_TITLE = 'xGDS'  # the name of your research project, your brand
+SITE_TITLE = 'xGDS Demo'  # the name of your research project, your brand
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '***REMOVED***'
@@ -54,16 +54,16 @@ INSTALLED_APPS = ['django_npm_apps',
                   # 'xgds_sample',
                   # 'xgds_instrument',
                   'xgds_planner2',
-                  # 'xgds_image',
+                  'xgds_image',
                   # 'xgds_video',
                   # 'xgds_plot',
                   # 'xgds_status_board',
                   'xgds_notes2',
                   'xgds_map_server',
-                  'xgds_core',
 
                   'deepzoom',  # needed for xgds_image
                   'geocamTrack',
+                  'xgds_core',
                   'geocamPycroraptor2',
                   'geocamUtil',
                   'pipeline',
