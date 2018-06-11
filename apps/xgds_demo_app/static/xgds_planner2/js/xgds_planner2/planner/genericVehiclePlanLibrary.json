@@ -1,0 +1,105 @@
+{
+    "xpjson": "0.2",
+    "type": "PlanLibrary",
+
+    "name": "Generic Vehicle Command Library",
+    "notes": "Reusable elements for generic vehicle plans",
+    "id": "http://xgds.org/planner/genericVehiclePlanLibrary.json",
+    "schemaUrl": "http://xgds.org/planner/genericVehiclePlanSchema.json",
+
+    "sites": [
+        
+        {
+            "type": "Site",
+            "id": "IRG",
+            "name": "Ames",
+            "notes": "NASA Ames Roverscape",
+            "alternateCrs": {
+                "type": "roversw",
+                "properties": {
+                    "originNorthing": 4141835,
+                    "originEasting": 582724,
+                    "projection": "utm",
+                    "zone": 10,
+                    "zoneLetter": "N",
+                    "frame": "RoverscapeSiteFrameZDown",
+                    "zDirection": "down",
+                    "label": "Site Frame",
+                    "coordinateLabel": "X, Y",
+                    "coordinateNotes": "X=Northing Y=Easting",
+                    "coordinateMapping": "lat, lon",
+                    "timezone": "America/Los_Angeles"
+                }
+            },
+            "bbox": [37.420289, -122.064721,
+            		 37.419226, -122.065580]
+        },
+	{
+            "type": "Site",
+            "id": "ERL",
+            "name": "Erlanger",
+            "notes": "Lunar North Pole",
+            "alternateCrs": {
+		"type": "roversw",
+		"properties": {
+                    "originNorthing": -78921.5,
+                    "originEasting": 47086.5,
+                    "projection": "utm",
+                    "zone": 28,
+                    "zoneLetter": "z",
+                    "frame": "ErlangerSiteFrame",
+                    "zDirection": "down",
+                    "label": "Site Frame",
+                    "coordinateLabel": "X, Y",
+                    "coordinateNotes": "X=Northing Y=Easting",
+                    "coordinateMapping": "lat, lon",
+                    "timezone": "Etc/UTC"
+		}
+            },
+            "bbox": [86.601725, 14.570925,
+		     87.045453, 49.598367]
+	},
+	{
+            "type": "Site",
+            "id": "HAW",
+            "name": "Haworth",
+            "notes": "Lunar South Pole",
+            "alternateCrs": {
+		"type": "roversw",
+		"properties": {
+                    "originNorthing": 411741.48,
+                    "originEasting": 505774.32,
+                    "projection": "utm",
+                    "zone": 28,
+                    "zoneLetter": "z",
+                    "frame": "HaworthSiteFrame",
+                    "zDirection": "down",
+                    "label": "Site Frame",
+                    "coordinateLabel": "X, Y",
+                    "coordinateNotes": "X=Northing Y=Easting",
+                    "coordinateMapping": "lat, lon",
+                    "timezone": "Etc/UTC"
+		}
+            },
+            "bbox": [-86.922825, -19.66348611111111,
+		     -86.051475, -10.589447222222223]
+	}
+    ],
+
+    "platforms": [
+        {
+            "type": "Platform",
+            "id": "1",
+            "name": "GenericVehicle"
+        }
+    ], 
+    
+    "commands": [
+        {
+            "type": "Pause",
+            "presetName": "Pause",
+            "duration": 300,
+            "presetCode": "WAI"
+        }
+     ]
+}

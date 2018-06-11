@@ -102,6 +102,20 @@ if USING_DJANGO_DEV_SERVER:
     # django dev server deployment won't work with other SCRIPT_NAME settings
     SCRIPT_NAME = '/'
 
+XGDS_PLANNER_SCHEMAS = {
+    # "test": {
+    #     "schemaSource": "apps/xgds_planner2/testing/examplePlanSchema.json",
+    #     "librarySource": "apps/xgds_planner2/testing/examplePlanLibrary.json",
+    #     "simulatorUrl": "xgds_planner2/testing/exampleSimulator.js",
+    #     "simulator": "xgds_planner2.ExampleSimulator",
+    # },
+    "GenericVehicle": {
+        "schemaSource": "apps/xgds_planner2/js/xgds_planner2/planner/genericVehiclePlanSchema.json",
+        "librarySource": "apps/xgds_demo_app/static/xgds_planner2/js/xgds_planner2/planner/genericVehiclePlanLibrary.json",
+        "simulatorUrl": "apps/xgds_planner2/js/planner/genericVehicleSimulator.js",
+        "simulator": "genericVehicle.Simulator",  # the namespace within the simulator js
+    }
+}
 
 DEBUG = True
 # TEMPLATE_DEBUG = DEBUG
@@ -264,6 +278,14 @@ STATICFILES_FINDERS = (
 
 # SET UP PIPELINE
 PIPELINE = getOrCreateDict('PIPELINE')
+PIPELINE['JAVASCRIPT'] = {'custom_map': {'source_filenames': ('xgds_demo_app/js/showMapCoords.js',
+                                                              'xgds_demo_app/js/initial_layers.js',),
+                                         'output_filename': 'js/custom_map.js',
+}
+}                          
+
+
+PIPELINE['CSS_COMPRESSOR'] = 'pipeline.compressors.yuglify.YuglifyCompressor'
 PIPELINE['PIPELINE_ENABLED'] = True
 PIPELINE['JS_COMPRESSOR'] = 'pipeline.compressors.yuglify.YuglifyCompressor'
 PIPELINE['CSS_COMPRESSOR'] = 'pipeline.compressors.yuglify.YuglifyCompressor'
@@ -338,7 +360,8 @@ COMPASS_CORRECTION =  10
 
 PYRAPTORD_SERVICE = True
 
-XGDS_CURRENT_SITEFRAME_ID = 1  # Set this to your siteframe; this will probably be NASA Ames
+XGDS_CURRENT_SITEFRAME_ID = 2  # Set this to your siteframe; this will probably be NASA Ames
+XGDS_MAP_SERVER_DEFAULT_ZOOM = 6
 
 XGDS_CORE_LIVE_INDEX_URL = '/' + XGDS_SITE_APP + '/live'
 
@@ -362,6 +385,17 @@ CACHES = {
 # FILE_UPLOAD_TEMP_DIR = os.path.join(DATA_ROOT, XGDS_MAP_SERVER_GEOTIFF_SUBDIR, 'temp')
 #ZEROMQ_PORTS = PROJ_ROOT + 'apps/xgds_baseline_app/ports.json'
 
+XGDS_MAP_SERVER_MAP_LOADED_CALLBACK = 'rp.coordinator.init'
+XGDS_MAP_SERVER_MAP_SETUP_COORD_SYSTEM = 'rp.coordinator.setupCoordinateSystem'
+#south pole
+#XGDS_MAP_SERVER_DEFAULT_COORD_SYSTEM = 'IAU2000:30120'
+#XGDS_MAP_SERVER_DEFAULT_COORD_SYSTEM_CENTER = [-26709, 102815]
+#north pole
+XGDS_MAP_SERVER_DEFAULT_COORD_SYSTEM = 'IAU2000:30118'
+XGDS_MAP_SERVER_DEFAULT_COORD_SYSTEM_CENTER = [47086.5, -78921.5] 
+XGDS_MAP_SERVER_BODY_RADIUS_METERS = 1737400
+XGDS_MAP_SERVER_GDAL2TILES_EXTRAS = "-p raster "
+XGDS_MAP_SERVER_GDAL2TILES_ZOOM_LEVELS = False
 
 USE_TZ = True
 
