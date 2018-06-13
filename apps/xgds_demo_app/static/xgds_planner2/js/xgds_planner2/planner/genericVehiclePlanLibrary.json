@@ -34,6 +34,31 @@
             "bbox": [37.420289, -122.064721,
             		 37.419226, -122.065580]
         },
+        {
+            "type": "Site",
+            "id": "MVP",
+            "name": "MVP",
+            "notes": "MVP Field Site",
+            "alternateCrs": {
+                "type": "roversw",
+                "properties": {
+                    "originNorthing": 3893044.0,
+                    "originEasting": 573456.0,
+                    "projection": "utm",
+                    "zone": 11,
+                    "zoneLetter": "S",
+                    "frame": "MVPSiteFrame",
+                    "zDirection": "down",
+                    "label": "Site Frame",
+                    "coordinateLabel": "X, Y",
+                    "coordinateNotes": "X=Northing Y=Easting",
+                    "coordinateMapping": "lat, lon",
+                    "timezone": "America/Los_Angeles"
+                }
+            },
+            "bbox": [35.191, -116.173,
+            	     35.173, -116.198]
+        },
 	{
             "type": "Site",
             "id": "ERL",

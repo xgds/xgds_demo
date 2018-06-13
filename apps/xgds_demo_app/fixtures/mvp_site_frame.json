@@ -1,0 +1,1 @@
+[{"model": "geocamUtil.siteframe", "pk": 3, "fields": {"name": "MVP", "displayName": "MVP", "east0": 573456.0, "north0": 3893044.0, "zone": "11S", "zoneNumber": 11, "south": false, "axes": "NED", "north": "grid", "timezone": "America/Los_Angeles", "projCode": "EPSG:2229", "projString": "+proj=utm +zone=11 +ellps=WGS84 +datum=WGS84 +units=m +no_defs", "projUnits": "m"}}]

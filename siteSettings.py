@@ -278,11 +278,11 @@ STATICFILES_FINDERS = (
 
 # SET UP PIPELINE
 PIPELINE = getOrCreateDict('PIPELINE')
-PIPELINE['JAVASCRIPT'] = {'custom_map': {'source_filenames': ('xgds_demo_app/js/showMapCoords.js',
-                                                              'xgds_demo_app/js/initial_layers.js',),
-                                         'output_filename': 'js/custom_map.js',
-}
-}                          
+# PIPELINE['JAVASCRIPT'] = {'custom_map': {'source_filenames': ('xgds_demo_app/js/showMapCoords.js',
+#                                                               'xgds_demo_app/js/initial_layers.js',),
+#                                          'output_filename': 'js/custom_map.js',
+# }
+# }                          
 
 
 PIPELINE['CSS_COMPRESSOR'] = 'pipeline.compressors.yuglify.YuglifyCompressor'
@@ -360,8 +360,8 @@ COMPASS_CORRECTION =  10
 
 PYRAPTORD_SERVICE = True
 
-XGDS_CURRENT_SITEFRAME_ID = 2  # Set this to your siteframe; this will probably be NASA Ames
-XGDS_MAP_SERVER_DEFAULT_ZOOM = 6
+XGDS_CURRENT_SITEFRAME_ID = 3  # Set this to your siteframe; this will probably be NASA Ames
+#XGDS_MAP_SERVER_DEFAULT_ZOOM = 6
 
 XGDS_CORE_LIVE_INDEX_URL = '/' + XGDS_SITE_APP + '/live'
 
@@ -385,17 +385,17 @@ CACHES = {
 # FILE_UPLOAD_TEMP_DIR = os.path.join(DATA_ROOT, XGDS_MAP_SERVER_GEOTIFF_SUBDIR, 'temp')
 #ZEROMQ_PORTS = PROJ_ROOT + 'apps/xgds_baseline_app/ports.json'
 
-XGDS_MAP_SERVER_MAP_LOADED_CALLBACK = 'rp.coordinator.init'
-XGDS_MAP_SERVER_MAP_SETUP_COORD_SYSTEM = 'rp.coordinator.setupCoordinateSystem'
-#south pole
-#XGDS_MAP_SERVER_DEFAULT_COORD_SYSTEM = 'IAU2000:30120'
-#XGDS_MAP_SERVER_DEFAULT_COORD_SYSTEM_CENTER = [-26709, 102815]
-#north pole
-XGDS_MAP_SERVER_DEFAULT_COORD_SYSTEM = 'IAU2000:30118'
-XGDS_MAP_SERVER_DEFAULT_COORD_SYSTEM_CENTER = [47086.5, -78921.5] 
-XGDS_MAP_SERVER_BODY_RADIUS_METERS = 1737400
-XGDS_MAP_SERVER_GDAL2TILES_EXTRAS = "-p raster "
-XGDS_MAP_SERVER_GDAL2TILES_ZOOM_LEVELS = False
+# XGDS_MAP_SERVER_MAP_LOADED_CALLBACK = 'rp.coordinator.init'
+# XGDS_MAP_SERVER_MAP_SETUP_COORD_SYSTEM = 'rp.coordinator.setupCoordinateSystem'
+# #south pole
+# #XGDS_MAP_SERVER_DEFAULT_COORD_SYSTEM = 'IAU2000:30120'
+# #XGDS_MAP_SERVER_DEFAULT_COORD_SYSTEM_CENTER = [-26709, 102815]
+# #north pole
+# XGDS_MAP_SERVER_DEFAULT_COORD_SYSTEM = 'IAU2000:30118'
+# XGDS_MAP_SERVER_DEFAULT_COORD_SYSTEM_CENTER = [47086.5, -78921.5] 
+# XGDS_MAP_SERVER_BODY_RADIUS_METERS = 1737400
+# XGDS_MAP_SERVER_GDAL2TILES_EXTRAS = "-p raster "
+# XGDS_MAP_SERVER_GDAL2TILES_ZOOM_LEVELS = False
 
 USE_TZ = True
 
