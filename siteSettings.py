@@ -360,7 +360,7 @@ COMPASS_CORRECTION =  10
 
 PYRAPTORD_SERVICE = True
 
-XGDS_CURRENT_SITEFRAME_ID = 3  # Set this to your siteframe; this will probably be NASA Ames
+XGDS_CURRENT_SITEFRAME_ID = 1  # Set this to your siteframe; this will probably be NASA Ames
 #XGDS_MAP_SERVER_DEFAULT_ZOOM = 6
 
 XGDS_CORE_LIVE_INDEX_URL = '/' + XGDS_SITE_APP + '/live'
