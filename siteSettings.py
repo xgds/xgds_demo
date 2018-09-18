@@ -110,10 +110,10 @@ XGDS_PLANNER_SCHEMAS = {
     #     "simulator": "xgds_planner2.ExampleSimulator",
     # },
     "GenericVehicle": {
-        "schemaSource": "apps/xgds_planner2/js/xgds_planner2/planner/genericVehiclePlanSchema.json",
-        "librarySource": "apps/xgds_demo_app/static/xgds_planner2/js/xgds_planner2/planner/genericVehiclePlanLibrary.json",
-        "simulatorUrl": "apps/xgds_planner2/js/planner/genericVehicleSimulator.js",
-        "simulator": "genericVehicle.Simulator",  # the namespace within the simulator js
+        "schemaSource": "apps/xgds_demo_app/planner/mvpPlanSchema.json",
+        "librarySource": "apps/xgds_demo_app/planner/mvpPlanLibrary.json",
+        "simulatorUrl": "apps/xgds_demo_app/planner/kRex2Simulator.js",
+        "simulator": "xgds_kn.Simulator",  # the namespace within the simulator js
     }
 }
 
@@ -278,18 +278,20 @@ STATICFILES_FINDERS = (
 
 # SET UP PIPELINE
 PIPELINE = getOrCreateDict('PIPELINE')
-# PIPELINE['JAVASCRIPT'] = {'custom_map': {'source_filenames': ('xgds_demo_app/js/showMapCoords.js',
-#                                                               'xgds_demo_app/js/initial_layers.js',),
-#                                          'output_filename': 'js/custom_map.js',
-# }
-# }                          
+PIPELINE['JAVASCRIPT'] = {'simulator': {'source_filenames': ('xgds_demo_app/js/planner/kRex2Simulator.js',),
+                                        'output_filename': 'js/simulator.js',},
+                          'custom_map': {'source_filenames': ('xgds_map_server/js/map_viewer/olShowMapCoords.js',
+                                                               'xgds_map_server/js/map_viewer/olInitialLayers.js',),
+                                          'output_filename': 'js/custom_map.js',
+                          }
+}                          
 
 
 PIPELINE['CSS_COMPRESSOR'] = 'pipeline.compressors.yuglify.YuglifyCompressor'
 PIPELINE['PIPELINE_ENABLED'] = True
 PIPELINE['JS_COMPRESSOR'] = 'pipeline.compressors.yuglify.YuglifyCompressor'
 PIPELINE['CSS_COMPRESSOR'] = 'pipeline.compressors.yuglify.YuglifyCompressor'
-PIPELINE['YUGLIFY_JS_ARGUMENTS'] = 'mangle:false --terminal'
+PIPELINE['YUGLIFY_JS_ARGUMENTS'] = 'mangle:false --terminal --no-seqs'
 PIPELINE['DISABLE_WRAPPER'] = True
 
 COMPRESS_ENABLED = False
