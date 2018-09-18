@@ -14,3 +14,36 @@
 # specific language governing permissions and limitations under the License.
 #__END_LICENSE__
 
+import json
+import traceback
+from django.http import JsonResponse
+from django.conf import settings
+from geocamUtil.loader import LazyGetModelByName
+import requests
+
+def computeAerEstimate(request, planPk):
+    print "Calling AER for plan:", planPk
+
+    """ Call AER over http and either return the modified plan with success message,
+    or return error message.
+    """
+    PLAN_MODEL = LazyGetModelByName(settings.XGDS_PLANNER_PLAN_MODEL)
+    response = {}
+    try:
+        plan = PLAN_MODEL.get().objects.get(pk=planPk)
+        print "Processing plan %s at %s" % (plan.jsonPlan["name"], plan.jsonPlan["site"]["name"])
+        response["plan"]= plan.jsonPlan
+        headers = {"replyurl": "http://localhost:8181/myreply",
+                   "replyid": planPk}
+        resp = requests.post("http://localhost:8043/processplan", data=plan.jsonPlan, headers=headers)
+        response["plan"]= plan.jsonPlan
+        response["msg"]= "Sextant has calculated a new route."
+        response["status"] = resp.status_code
+        status = 200
+    except Exception, e:
+        traceback.print_exc()
+        response["msg"] = str(e)
+        response["status"] = False
+        status = 406
+
+    return JsonResponse({"status": "success", "planPk": planPk}, status=status)

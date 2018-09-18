@@ -117,6 +117,9 @@ XGDS_PLANNER_SCHEMAS = {
     }
 }
 
+XGDS_PLANNER_HANDLEBARS_DIRS = [os.path.join('xgds_planner2', 'templates', 'handlebars'),
+                                os.path.join('xgds_demo_app', 'templates', 'xgds_planner2')]
+
 DEBUG = True
 # TEMPLATE_DEBUG = DEBUG
 

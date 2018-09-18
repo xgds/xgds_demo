@@ -16,5 +16,8 @@
 #__END_LICENSE__
 
 from django.conf.urls import include, url
+from xgds_demo_app import views
 
-urlpatterns = []
+urlpatterns = [
+    url(r'aer/(?P<planPk>[\d]+)$', views.computeAerEstimate, {}, 'planner2_computeAerEstimate'),
+]
