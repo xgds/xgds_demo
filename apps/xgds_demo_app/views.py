@@ -37,7 +37,7 @@ def computeAerEstimate(request, planPk):
                    "replyid": planPk}
         resp = requests.post("http://localhost:8043/processplan", data=plan.jsonPlan, headers=headers)
         response["plan"]= plan.jsonPlan
-        response["msg"]= "Sextant has calculated a new route."
+        response["msg"]= "AER status: " + resp.text + "\n Click 'Reload' to view updated plan"
         response["status"] = resp.status_code
         status = 200
     except Exception, e:
