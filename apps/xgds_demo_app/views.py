@@ -46,4 +46,4 @@ def computeAerEstimate(request, planPk):
         response["status"] = False
         status = 406
 
-    return JsonResponse({"status": "success", "planPk": planPk}, status=status)
+    return JsonResponse(response, status=status)
