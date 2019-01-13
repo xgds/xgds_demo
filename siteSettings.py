@@ -55,7 +55,7 @@ INSTALLED_APPS = ['django_npm_apps',
                   # 'xgds_instrument',
                   'xgds_planner2',
                   'xgds_image',
-                  # 'xgds_video',
+                  'xgds_video',
                   # 'xgds_plot',
                   # 'xgds_status_board',
                   'xgds_notes2',
@@ -348,7 +348,6 @@ COMPASS_CORRECTION =  10
 # XGDS_INSTRUMENT_IMPORT_MODULE_PATH = 'xgds_baseline_app.instrumentDataImporters'
 
 # GEOCAM_TRACK_RECENT_TIME_FUNCTION = 'xgds_baseline_app.views.getCurrentTimeWithDelayCorrection'
-
 
 # XGDS_VIDEO_GET_ACTIVE_EPISODE = 'xgds_baseline_app.views.getActiveEpisode'
 # XGDS_VIDEO_GET_EPISODE_FROM_NAME = 'xgds_baseline_app.views.getEpisodeFromName'
