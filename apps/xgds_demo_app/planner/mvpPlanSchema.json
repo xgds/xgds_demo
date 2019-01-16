@@ -964,5 +964,46 @@
     ],
 
     "segmentSequenceCommands": [
-    ]
+    ],
+
+    "unitSpecs": [
+    {
+      "type": "UnitSpec",
+      "name": "length",
+      "id": "length",
+      "units": {
+        "meters": 1.0,
+        "mm": 0.001,
+        "inches": 0.0254
+      }
+    },
+    {
+      "type": "UnitSpec",
+      "name": "duration",
+      "id": "duration",
+      "units": {
+        "seconds": 1.0,
+        "minutes": 60
+      }
+    },
+    {
+      "type": "UnitSpec",
+      "name": "speed",
+      "id": "speed",
+      "units": {
+        "m/s": 1.0,
+        "meters/sec": 1.0,
+        "mph": 2.2369363
+      }
+    },
+    {
+      "type": "UnitSpec",
+      "name": "angle",
+      "id": "angle",
+      "units": {
+        "degrees": 1.0,
+        "radians": 0.0174533
+      }
+    }
+  ]
 }
