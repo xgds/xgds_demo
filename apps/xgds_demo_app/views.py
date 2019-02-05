@@ -33,11 +33,12 @@ def computeAerEstimate(request, planPk):
         plan = PLAN_MODEL.get().objects.get(pk=planPk)
         print "Processing plan %s at %s" % (plan.jsonPlan["name"], plan.jsonPlan["site"]["name"])
         response["plan"]= plan.jsonPlan
-        headers = {"replyurl": "http://localhost:8181/myreply",
+        headers = {"replyurl": "%s/xgds_planner2/rest/plan/save/%s" % (settings.AER_CALLBACK_HOST_AND_PORT, planPk),
                    "replyid": planPk}
-        resp = requests.post("http://localhost:8043/processplan", data=plan.jsonPlan, headers=headers)
+        resp = requests.post("%s/processplan" % settings.AER_SERVICE_URL_BASE,
+                             data=json.dumps(plan.jsonPlan), headers=headers)
         response["plan"]= plan.jsonPlan
-        response["msg"]= "AER status: " + resp.text + "\n Click 'Reload' to view updated plan"
+        response["msg"]= "AER status: " + resp.text + ". \n Click 'Reload' to view updated plan"
         response["status"] = resp.status_code
         status = 200
     except Exception, e:

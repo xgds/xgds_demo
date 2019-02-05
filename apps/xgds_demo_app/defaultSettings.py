@@ -38,3 +38,5 @@ import os
 import datetime
 
 XGDS_SAMPLE_START_YEAR = datetime.datetime.now().year
+AER_CALLBACK_HOST_AND_PORT = "http://localhost:8181"
+AER_SERVICE_HOST_AND_PORT = "http://localhost:8043"
