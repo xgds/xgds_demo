@@ -5,12 +5,14 @@ app = Flask(__name__)
 @app.route("/verifyxpace", methods=['POST', 'GET'])
 def verifyXpace():
     if request.method == "POST":
+        print request.data
+        print "\n"
+        print request.headers
         if request.is_json:
-            planInfo = request.json
-            print "Got", len(planInfo), "plans."
-            for p in planInfo:
-                planName = p["name"]
-                plan = p["jsonPlan"]
+            planList = request.json
+            print "Got", len(planList), "plans."
+            for plan in planList:
+                planName = plan["name"]
                 print "   Name:", planName
                 print "   Site: %s (%s)" % (plan["site"]["name"], plan["site"]["bbox"])
             return "OK"
