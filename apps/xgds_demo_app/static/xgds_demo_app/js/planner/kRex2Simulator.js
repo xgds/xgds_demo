@@ -47,11 +47,18 @@ _.extend(xgds_kn.Simulator.prototype, {
         segment._segmentLength = norm;
         this.distanceTraveled = this.distanceTraveled + norm;
 
-        var hintedSpeed = segment.get('hintedSpeed');
-        if (typeof(hintedSpeed) != 'number' || hintedSpeed < 0) {
-            hintedSpeed = context.plan.get('defaultSpeed');
+	var driveSpeed = context.plan.get('defaultSpeed');
+
+	var speedMadeGood = segment.get('speedMadeGood');
+        if (typeof(speedMadeGood) == 'number' && speedMadeGood > 0) {
+            driveSpeed = speedMadeGood;
         }
-        var dt = DRIVE_TIME_MULTIPLIER * (norm / hintedSpeed);
+
+        var hintedSpeed = segment.get('hintedSpeed');
+        if (typeof(hintedSpeed) == 'number' && hintedSpeed > 0) {
+            driveSpeed = hintedSpeed;
+        }
+        var dt = DRIVE_TIME_MULTIPLIER * (norm / driveSpeed);
 
         // add in rotation estimate, we rough in 20 seconds for each waypoint.
         this.elapsedTime = this.elapsedTime + dt + ROTATION_ADDITION;
