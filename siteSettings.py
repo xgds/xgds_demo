@@ -118,6 +118,7 @@ XGDS_PLANNER_SCHEMAS = {
 }
 
 XGDS_PLANNER_HANDLEBARS_DIRS = [os.path.join('xgds_planner2', 'templates', 'handlebars'),
+                                os.path.join('xgds_map_server', 'templates', 'handlebars', 'search'),
                                 os.path.join('xgds_demo_app', 'templates', 'xgds_planner2')]
 
 DEBUG = True
@@ -400,6 +401,8 @@ CACHES = {
 # XGDS_MAP_SERVER_BODY_RADIUS_METERS = 1737400
 # XGDS_MAP_SERVER_GDAL2TILES_EXTRAS = "-p raster "
 # XGDS_MAP_SERVER_GDAL2TILES_ZOOM_LEVELS = False
+
+XGDS_MAP_SERVER_SEARCH_MODELS = ['Event', 'Sample', 'Image', 'Message']
 
 USE_TZ = True
 
